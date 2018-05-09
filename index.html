@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Blog Page</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+</head>
+<body>
+
+	<div class="container-contact100" style="background-image: url('images/bg-01.jpg');">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Please Provide These Details
+				</span>
+
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">Please Provide your name *</span>
+					<input class="input100" type="text" name="name" id="t1" placeholder="Enter your name">
+				</div>
+
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Blog title is required">
+					<span class="label-input100">Please Provide your Blog Title *</span>
+					<input class="input100" type="text" name="name" id="t2" placeholder="Enter your Blog Title">
+				</div>
+
+				<div class="wrap-input100 ">
+					<span class="label-input100">Provide a Url for your blog image</span>
+					<input class="input100" type="text" name="web" id="t3" placeholder="http://" data-validate = " Url is required">
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Something is required">
+					<span class="label-input100">Paragraph 1</span>
+					<textarea class="input100" name="message" id="t4" placeholder="Write your blog here..."></textarea>
+				</div>
+				<div class="wrap-input100 validate-input" data-validate = "Something is required">
+					<span class="label-input100">Paragraph 2</span>
+					<textarea class="input100" name="message" id="t5" placeholder="Write your blog here..."></textarea>
+				</div>
+				<div class="wrap-input100 validate-input" data-validate = "Something is required">
+					<span class="label-input100">Paragraph 3</span>
+					<textarea class="input100" name="message" id="t6" placeholder="Write your blog here..."></textarea>
+				</div><br><br>
+				<label> Check for Bold:</label>
+				<input id="ch1" name="remember" type="checkbox"/><br><br>
+				<label> Check for Underline:</label><br>
+				<input id="ch2" name="remember" type="checkbox"/>
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn" onclick="showInput();return false;">
+							Submit Info
+						</button>
+					</div>
+				</div>
+			</form>
+			<br><br>
+			<label> The Json Object Data is:</label>
+			<p><pre><span id='display1'></span></pre><br>
+			<p><pre><span id='display2'></span></pre><br>
+			<p><pre><span id='display3'></span></pre><br>
+			<p><pre><span id='display4'></span></pre><br>
+			<p><pre><span id='display5'></span></pre><br>
+			<p><pre><span id='display6'></span></pre><br>
+			<p><pre><span id='display7'></span></pre><br>
+		</div>
+
+	</div>
+
+
+	<div id="dropDownSelect1"></div>
+	 <script language="JavaScript">
+                 
+    var data={
+            "name":"",
+            "blogtitle":"",
+            "blogurl":"",
+            "par1":"",
+            "par2":"",
+            "bold":false,
+            "Underline":false
+        }
+                   
+        function showInput() {
+
+            if (document.getElementById('ch1').checked){
+                data.bold=true;
+            }
+            if (document.getElementById('ch2').checked){
+                data.Underline=true;
+            }
+            data.name=document.getElementById('t1').value;
+            data.blogtitle=document.getElementById('t2').value;
+            data.blogurl=document.getElementById('t3').value;
+            data.par1=document.getElementById('t4').value;
+            data.par2=document.getElementById('t5').value;
+               if (data.blogtitle==null || data.blogtitle==""||
+                   data.blogurl==null || data.blogurl==""||data.name==null || data.name==""||
+                   data.par1==null || data.par1==""||data.par2==null||data.par2=="")
+                    {
+                        alert("Please Fill All Required Field");
+                    return false;
+                        }
+            document.getElementById('display1').innerHTML=data.name;
+            document.getElementById('display2').innerHTML=data.blogtitle;
+            document.getElementById('display3').innerHTML=data.blogurl;
+            document.getElementById('display4').innerHTML=data.par1;
+            document.getElementById('display5').innerHTML=data.par2;
+            if(data.bold){
+                document.getElementById('display6').innerHTML="Bold is checked";
+            }
+            else{
+                document.getElementById('display6').innerHTML="Bold is not checked";
+            }
+              if(data.Underline){
+                document.getElementById('display7').innerHTML="Underline is checked";
+            }
+            else{
+                document.getElementById('display7').innerHTML="Underline is not checked";
+            }
+     }
+ 
+     </script>
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+ 
+
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="vendor/select2/select2.min.js"></script>
+
+	<script src="js/main.js"></script>
+
+</body>
+</html>
